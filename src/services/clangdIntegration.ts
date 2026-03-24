@@ -15,19 +15,32 @@ export async function updateCompileCommandsDir(
 
   nextArguments.push(`--compile-commands-dir=${compilationDatabaseDirectory}`);
 
-  await configuration.update(
-    'arguments',
-    nextArguments,
-    vscode.ConfigurationTarget.WorkspaceFolder,
-  );
+  await configuration.update('arguments', nextArguments, vscode.ConfigurationTarget.Workspace);
+
+  if ((vscode.workspace.workspaceFolders?.length ?? 0) > 1) {
+    void vscode.window.showWarningMessage(
+      'clangd.arguments is workspace-scoped. ClangdHelper updated the shared workspace setting for all folders.',
+    );
+  }
 }
 
 export async function restartClangd(): Promise<boolean> {
-  const commands = await vscode.commands.getCommands(true);
-  if (!commands.includes('clangd.restart')) {
+  const clangdExtension = vscode.extensions.getExtension(
+    'llvm-vs-code-extensions.vscode-clangd',
+  );
+
+  if (!clangdExtension) {
     return false;
   }
 
-  await vscode.commands.executeCommand('clangd.restart');
-  return true;
+  if (!clangdExtension.isActive) {
+    await clangdExtension.activate();
+  }
+
+  try {
+    await vscode.commands.executeCommand('clangd.restart');
+    return true;
+  } catch {
+    return false;
+  }
 }
