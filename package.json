@@ -1,0 +1,128 @@
+{
+  "name": "clangdhelper",
+  "displayName": "ClangdHelper",
+  "description": "Generate compile_commands.json for qmake projects and keep clangd in sync.",
+  "version": "0.1.0",
+  "publisher": "placeholder-publisher",
+  "license": "MIT",
+  "icon": "assets/icon.png",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:clangdHelper.syncProject",
+    "onCommand:clangdHelper.generateCompilationDatabase",
+    "onCommand:clangdHelper.restartClangd"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "clangdHelper.syncProject",
+        "title": "ClangdHelper: Sync Project"
+      },
+      {
+        "command": "clangdHelper.generateCompilationDatabase",
+        "title": "ClangdHelper: Generate Compilation Database"
+      },
+      {
+        "command": "clangdHelper.restartClangd",
+        "title": "ClangdHelper: Restart Clangd"
+      }
+    ],
+    "configuration": {
+      "title": "ClangdHelper",
+      "properties": {
+        "clangdHelper.projectFile": {
+          "type": "string",
+          "default": "",
+          "description": "Path to the target .pro file. Relative paths are resolved from the workspace folder."
+        },
+        "clangdHelper.buildDirectory": {
+          "type": "string",
+          "default": ".clangdhelper/build/${projectName}",
+          "description": "Build directory for qmake and make. Supports ${workspaceFolder}, ${projectDir}, ${projectName}, ${projectFileStem}, and ${projectFileDirName}."
+        },
+        "clangdHelper.compilationDatabaseDirectory": {
+          "type": "string",
+          "default": "${buildDirectory}",
+          "description": "Directory where compile_commands.json will be generated. Supports the same placeholders as buildDirectory plus ${buildDirectory}."
+        },
+        "clangdHelper.qmakePath": {
+          "type": "string",
+          "default": "qmake",
+          "description": "Path to the qmake executable."
+        },
+        "clangdHelper.qmakeArgs": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "description": "Additional arguments passed to qmake before the project file path."
+        },
+        "clangdHelper.makePath": {
+          "type": "string",
+          "default": "make",
+          "description": "Path to the make-like executable used after qmake."
+        },
+        "clangdHelper.makeArgs": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "description": "Additional arguments passed to make or the bundled helper."
+        },
+        "clangdHelper.envBootstrap": {
+          "type": "string",
+          "default": "",
+          "description": "Optional shell snippet executed through bash -lc before qmake and compilation database generation."
+        },
+        "clangdHelper.compiledbStrategy": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "system",
+            "bundled"
+          ],
+          "default": "auto",
+          "description": "How to resolve compiledb. auto uses a system compiledb first, then attempts installation, and finally falls back to the bundled helper."
+        },
+        "clangdHelper.compiledbPath": {
+          "type": "string",
+          "default": "",
+          "description": "Explicit path to a compiledb executable. When set, it overrides the strategy."
+        },
+        "clangdHelper.updateClangdArguments": {
+          "type": "boolean",
+          "default": true,
+          "description": "Update workspace clangd.arguments with the generated compilation database directory."
+        },
+        "clangdHelper.restartClangdAfterSync": {
+          "type": "boolean",
+          "default": true,
+          "description": "Restart clangd after a successful syncProject run."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsc -p ./",
+    "watch": "tsc -w -p ./",
+    "vscode:prepublish": "pnpm run build",
+    "package:vsix": "pnpm run build && pnpm exec vsce package --no-dependencies --allow-missing-repository -o clangdhelper.vsix",
+    "test": "pnpm run build"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.6.0",
+    "@types/node": "^24.0.0",
+    "@types/vscode": "^1.90.0",
+    "@vscode/test-electron": "^2.5.2",
+    "typescript": "^5.8.3"
+  },
+  "packageManager": "pnpm@10.7.0"
+}

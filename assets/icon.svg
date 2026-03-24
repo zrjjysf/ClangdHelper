@@ -1,0 +1,41 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="36" y1="28" x2="220" y2="232" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F3B57"/>
+      <stop offset="1" stop-color="#2B7A78"/>
+    </linearGradient>
+    <linearGradient id="doc" x1="72" y1="56" x2="176" y2="188" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7FAFC"/>
+      <stop offset="1" stop-color="#D9E5EC"/>
+    </linearGradient>
+    <linearGradient id="gear" x1="134" y1="136" x2="210" y2="212" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFB703"/>
+      <stop offset="1" stop-color="#FB8500"/>
+    </linearGradient>
+    <filter id="shadow" x="26" y="18" width="204" height="220" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#052030" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <rect x="16" y="16" width="224" height="224" rx="52" fill="url(#bg)"/>
+
+  <g filter="url(#shadow)">
+    <path d="M72 56H160L184 80V188C184 194.627 178.627 200 172 200H84C77.3726 200 72 194.627 72 188V56Z" fill="url(#doc)"/>
+    <path d="M160 56V76C160 82.6274 165.373 88 172 88H184" fill="#C0D1DB"/>
+  </g>
+
+  <path d="M97 104L83 128L97 152" stroke="#0B3954" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M135 104L149 128L135 152" stroke="#0B3954" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M111 160H145" stroke="#0B3954" stroke-width="10" stroke-linecap="round"/>
+
+  <circle cx="178" cy="178" r="34" fill="url(#gear)"/>
+  <circle cx="178" cy="178" r="13" fill="#FFF3D1"/>
+  <path d="M178 138V149" stroke="#F4A261" stroke-width="8" stroke-linecap="round"/>
+  <path d="M178 207V218" stroke="#F4A261" stroke-width="8" stroke-linecap="round"/>
+  <path d="M138 178H149" stroke="#F4A261" stroke-width="8" stroke-linecap="round"/>
+  <path d="M207 178H218" stroke="#F4A261" stroke-width="8" stroke-linecap="round"/>
+  <path d="M150.4 150.4L158.2 158.2" stroke="#F4A261" stroke-width="8" stroke-linecap="round"/>
+  <path d="M197.8 197.8L205.6 205.6" stroke="#F4A261" stroke-width="8" stroke-linecap="round"/>
+  <path d="M205.6 150.4L197.8 158.2" stroke="#F4A261" stroke-width="8" stroke-linecap="round"/>
+  <path d="M158.2 197.8L150.4 205.6" stroke="#F4A261" stroke-width="8" stroke-linecap="round"/>
+</svg>
