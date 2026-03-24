@@ -62,7 +62,7 @@ export async function generateCompilationDatabase(
   if (resolvedTool.kind === 'external' && resolvedTool.executable) {
     await runCommand({
       command: resolvedTool.executable,
-      args: ['-o', options.outputFile, options.makePath, ...options.makeArgs],
+      args: ['-o', options.outputFile, '--no-build', options.makePath, ...options.makeArgs],
       cwd: options.cwd,
       envBootstrap: options.envBootstrap,
       label: `Generate compilation database (${resolvedTool.source})`,

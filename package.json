@@ -38,26 +38,31 @@
       "properties": {
         "clangdHelper.projectFile": {
           "type": "string",
+          "scope": "resource",
           "default": "",
           "description": "Path to the target .pro file. Relative paths are resolved from the workspace folder."
         },
         "clangdHelper.buildDirectory": {
           "type": "string",
+          "scope": "resource",
           "default": ".clangdhelper/build/${projectName}",
           "description": "Build directory for qmake and make. Supports ${workspaceFolder}, ${projectDir}, ${projectName}, ${projectFileStem}, and ${projectFileDirName}."
         },
         "clangdHelper.compilationDatabaseDirectory": {
           "type": "string",
+          "scope": "resource",
           "default": "${buildDirectory}",
           "description": "Directory where compile_commands.json will be generated. Supports the same placeholders as buildDirectory plus ${buildDirectory}."
         },
         "clangdHelper.qmakePath": {
           "type": "string",
+          "scope": "resource",
           "default": "qmake",
           "description": "Path to the qmake executable."
         },
         "clangdHelper.qmakeArgs": {
           "type": "array",
+          "scope": "resource",
           "default": [],
           "items": {
             "type": "string"
@@ -66,11 +71,13 @@
         },
         "clangdHelper.makePath": {
           "type": "string",
+          "scope": "resource",
           "default": "make",
           "description": "Path to the make-like executable used after qmake."
         },
         "clangdHelper.makeArgs": {
           "type": "array",
+          "scope": "resource",
           "default": [],
           "items": {
             "type": "string"
@@ -79,11 +86,13 @@
         },
         "clangdHelper.envBootstrap": {
           "type": "string",
+          "scope": "resource",
           "default": "",
           "description": "Optional shell snippet executed through bash -lc before qmake and compilation database generation."
         },
         "clangdHelper.compiledbStrategy": {
           "type": "string",
+          "scope": "resource",
           "enum": [
             "auto",
             "system",
@@ -94,16 +103,19 @@
         },
         "clangdHelper.compiledbPath": {
           "type": "string",
+          "scope": "resource",
           "default": "",
           "description": "Explicit path to a compiledb executable. When set, it overrides the strategy."
         },
         "clangdHelper.updateClangdArguments": {
           "type": "boolean",
+          "scope": "resource",
           "default": true,
           "description": "Update workspace clangd.arguments with the generated compilation database directory."
         },
         "clangdHelper.restartClangdAfterSync": {
           "type": "boolean",
+          "scope": "resource",
           "default": true,
           "description": "Restart clangd after a successful syncProject run."
         }
