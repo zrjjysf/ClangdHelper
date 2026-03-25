@@ -2,7 +2,7 @@
   "name": "clangdhelper",
   "displayName": "ClangdHelper",
   "description": "Generate compile_commands.json for qmake projects and keep clangd in sync.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "placeholder-publisher",
   "license": "MIT",
   "icon": "assets/icon.png",
