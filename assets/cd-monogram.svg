@@ -1,0 +1,42 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M130 100H110A50 50 0 1 0 110 200H130"
+    fill="none"
+    stroke="#14823B"
+    stroke-width="26"
+    stroke-linecap="butt"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M125 100H110A50 50 0 1 0 110 200H125"
+    fill="none"
+    stroke="#CFEA85"
+    stroke-width="16"
+    stroke-linecap="butt"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M130 40H160V185H130V185H110A26 26 0 1 1 110 115H130V40Z"
+    fill="#23D3FF"
+    stroke="#085A99"
+    stroke-width="5"
+    stroke-linejoin="round"
+  />
+  <g transform="translate(119.8 147.2) scale(0.92) translate(-119.8 -147.2)">
+    <g transform="rotate(25 119.8 147.2)">
+      <g transform="translate(53 10) scale(0.17) rotate(22 512 512)">
+        <path
+          d="M575 717.8V292c39.3-22.1 65.9-64.1 65.9-112.4 0-49.7-28.2-92.9-69.5-114.4v67.2c0 32.6-26.4 59.1-59.1 59.1s-59.1-26.4-59.1-59.1V64.8C411.5 86.2 383 129.5 383 179.5c0 48.3 26.6 90.4 65.9 112.4v425.9C409.6 739.9 383 782 383 830.3c0 71.2 57.7 128.9 128.9 128.9s128.9-57.7 128.9-128.9c0.1-48.3-26.5-90.4-65.8-112.5z m-63 179.6c-37 0-67.1-30-67.1-67.1 0-37 30-67.1 67.1-67.1 37 0 67.1 30 67.1 67.1 0 37-30.1 67.1-67.1 67.1z"
+          fill="#E5E5E5"
+          stroke="#7A7A7A"
+          stroke-width="18"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M490 360h44v286h-44z"
+          fill="#FFCE34"
+        />
+      </g>
+    </g>
+  </g>
+</svg>
